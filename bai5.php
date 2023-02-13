@@ -1,14 +1,21 @@
+<form method="post" action="bai5.php">
+    <label for="number">Nhập số nguyên:</label>
+    <input type="number" id="number" name="number"><br>
+
+    <input type="submit" value="Tính tổng">
+</form>
 <?php
-echo "<br>Cho số n = 1021, tính 1 + 0 + 2 + 1" . "<br>";
+if (isset($_POST['number'])) {
+    $number = $_POST['number'];
+    $sum = 0;
 
-$bt5 = 1234;
-$bt5_clone = $bt5;
-$tong = 0;
+    while ($number > 0) {
+        $digit = $number % 10;
+        $sum += $digit;
+        $number = floor($number / 10);
+    }
 
-while ($bt5 > 0){
-$tong = $tong + ($bt5 % 10);
-$bt5 = $bt5 / 10;
+    $number = $_POST['number'];
+    echo "Tổng các chữ số của số $number là: $sum.";
 }
-echo "<br>Cho số n = $bt5_clone, tổng là: $tong" . "<br>";
-
 ?>
